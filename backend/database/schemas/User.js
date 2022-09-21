@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
-    discordId:{
+    googleId:{
         type: mongoose.SchemaTypes.String,
         required: true
     },

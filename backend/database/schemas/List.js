@@ -8,6 +8,10 @@ const ListSchema = mongoose.Schema({
     tag:{
         type: mongoose.SchemaTypes.String,
         default: ""
+    },
+    createdAt:{
+        type: mongoose.SchemaTypes.Date,
+        default: new Date()
     }
 })
 

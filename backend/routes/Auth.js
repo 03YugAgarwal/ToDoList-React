@@ -10,6 +10,8 @@ const isLoggedIn = (req,res,next)=>{
     req.user ? next() : res.sendStatus(401);
 }
 
+// Google Login Routes
+
 router.get("/google",
     passport.authenticate('google',{scope:['email','profile']})
 )
@@ -19,14 +21,15 @@ router.get("/google/callback",
 )
 
 router.get("/protected",isLoggedIn,(req,res)=>{
-    res.send(`Successful <br> <a href="/auth/logout">Logout</a> Hello ${req.user.displayName}`)
+    res.redirect('/')
 
 })
 
-router.get("/logout",(req,res)=>{
-    req.logout();
+// Login/Logout Routes
+
+router.get("/logout",(req,res,next)=>{
     req.session.destroy();
-    res.send('Logged out')
+    res.redirect('/')
 
 })
 
